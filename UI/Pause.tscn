@@ -1,0 +1,726 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/Fonts/PixeloidSans-nR3g1.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/skull.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/pico.png" type="Texture" id=3]
+[ext_resource path="res://UI/Pause.gd" type="Script" id=4]
+[ext_resource path="res://Materials/MenuFont.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/Images/darnell.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Audio/Sounds/snd_select.wav" type="AudioStream" id=7]
+[ext_resource path="res://UI/OptionsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/EyeFollow.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Audio/Sounds/snd_woosh1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Images/temp.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 247, 414 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 247, 414 ), Vector2( 247, 414 ), Vector2( 242, 448 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ), Vector2( 5, 5 ), Vector2( 6.217, 4.521 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 387, 54 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 387, 54 ), Vector2( 387, 54 ), Vector2( 420, 60 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.67451 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause/Pico/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 247, 414 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pause/Pico/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pause/Header/Label:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 387, 55 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pause/Header/Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pause/Header/Label:custom_fonts/font:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 120 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pause/Header/Label:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Pause/Header:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pause/Pico:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1150, 1510 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Pause/Buttons:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 387, 249 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Pause/Buttons:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.847059 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause/Header/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pause/Header:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ), Vector2( 0, -300 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pause/Pico:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1022, 1248 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pause/Pico:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -108.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pause/Buttons:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 387, 249 ), Vector2( 387, 600 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pause/Buttons:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.847059 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause/Header/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pause/Header:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -300 ), Vector2( 0, -50 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pause/Pico:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1022, 1248 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pause/Pico:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -108.0, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pause/Buttons:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 249 ), Vector2( 387, 249 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pause/Buttons:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Darnell:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -247, 414 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Darnell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 5 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Darnell:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -247, 414 ), Vector2( -247, 414 ), Vector2( -242, 448 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Darnell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, 5 ), Vector2( -5, 5 ), Vector2( -6.217, 4.521 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1058, 55 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1058, 55 ), Vector2( -1058, 55 ), Vector2( -1023, 60 ) ]
+}
+
+[node name="Pause" type="CanvasLayer" groups=["menu", "pause"]]
+pause_mode = 2
+layer = 3
+script = ExtResource( 4 )
+
+[node name="Pause" type="Node2D" parent="."]
+
+[node name="Temp" type="Sprite" parent="Pause"]
+visible = false
+position = Vector2( -14.6255, 320.876 )
+scale = Vector2( 4.04848, 1.47828 )
+texture = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+margin_left = -1075.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.67451 )
+
+[node name="Pico" type="Node2D" parent="Pause"]
+position = Vector2( -1150, 1510 )
+
+[node name="Sprite" type="Sprite" parent="Pause/Pico"]
+position = Vector2( 247, 414 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+
+[node name="Eyes" type="Node2D" parent="Pause/Pico/Sprite"]
+visible = false
+
+[node name="Left" type="Node2D" parent="Pause/Pico/Sprite/Eyes"]
+position = Vector2( 2.99997, -18 )
+script = ExtResource( 9 )
+max_distance = 2.5
+
+[node name="ColorRect" type="ColorRect" parent="Pause/Pico/Sprite/Eyes/Left"]
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 3.0
+margin_bottom = 3.0
+rect_pivot_offset = Vector2( 11.6, 6 )
+
+[node name="Sprite" type="Sprite" parent="Pause/Pico/Sprite/Eyes/Left"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2.67029e-05, 0 )
+scale = Vector2( 0.00337268, 0.00681431 )
+texture = ExtResource( 11 )
+
+[node name="Right" type="Node2D" parent="Pause/Pico/Sprite/Eyes"]
+position = Vector2( 24, -19 )
+script = ExtResource( 9 )
+max_distance = 1.5
+
+[node name="ColorRect" type="ColorRect" parent="Pause/Pico/Sprite/Eyes/Right"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 11.6, 6 )
+
+[node name="Sprite" type="Sprite" parent="Pause/Pico/Sprite/Eyes/Right"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2.98023e-07, 2.08616e-06 )
+scale = Vector2( 0.00337268, 0.00340716 )
+texture = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/Pico/Sprite" groups=["pause_animator"]]
+anims/RESET = SubResource( 10 )
+anims/idle = SubResource( 9 )
+
+[node name="Header" type="Node2D" parent="Pause"]
+
+[node name="Label" type="Label" parent="Pause/Header"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 387.0
+margin_top = 55.0
+margin_right = 1023.99
+margin_bottom = 202.0
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/Header/Label" groups=["pause_animator"]]
+anims/RESET = SubResource( 7 )
+anims/idle = SubResource( 8 )
+
+[node name="Buttons" type="VBoxContainer" parent="Pause"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 387.0
+margin_top = 249.0
+margin_right = 1024.0
+margin_bottom = 479.0
+theme = ExtResource( 5 )
+custom_constants/separation = 10
+
+[node name="Resume" type="Button" parent="Pause/Buttons" groups=["button"]]
+margin_right = 637.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 4 )
+text = "RESUME"
+
+[node name="Options" type="Button" parent="Pause/Buttons" groups=["button"]]
+margin_top = 72.0
+margin_right = 637.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 4 )
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="Pause/Buttons" groups=["button"]]
+margin_top = 144.0
+margin_right = 637.0
+margin_bottom = 206.0
+custom_fonts/font = SubResource( 4 )
+text = "BACK TO MENU"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 2 )
+anims/close = SubResource( 11 )
+anims/open = SubResource( 3 )
+
+[node name="Darnell" type="Sprite" parent="Pause"]
+position = Vector2( -247, 414 )
+scale = Vector2( -5, 5 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/Darnell" groups=["pause_animator"]]
+root_node = NodePath("../../Pico/Sprite")
+anims/RESET = SubResource( 12 )
+anims/idle = SubResource( 13 )
+
+[node name="OptionsHeader" type="Label" parent="Pause"]
+margin_left = -1058.0
+margin_top = 55.0
+margin_right = -421.01
+margin_bottom = 202.0
+custom_fonts/font = SubResource( 1 )
+text = "OPTIONS"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/OptionsHeader" groups=["pause_animator"]]
+anims/RESET = SubResource( 14 )
+anims/idle = SubResource( 15 )
+
+[node name="OptionsMenu" parent="Pause" instance=ExtResource( 8 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="WooshSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+pitch_scale = 1.52
+
+[connection signal="animation_finished" from="Pause/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

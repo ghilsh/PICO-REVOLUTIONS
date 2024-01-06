@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Materials/MenuFont.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Fonts/PixeloidSans-nR3g1.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/OptionsMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="OptionsMenu" type="VBoxContainer"]
+margin_left = -1021.0
+margin_top = 156.0
+margin_right = -473.0
+margin_bottom = 600.0
+theme = ExtResource( 1 )
+custom_constants/separation = 10
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="Music" type="Button" parent="." groups=["button"]]
+margin_top = 83.0
+margin_right = 548.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 4 )
+text = "MUSIC: ON"
+
+[node name="Fullscreen" type="Button" parent="." groups=["button"]]
+margin_top = 155.0
+margin_right = 548.0
+margin_bottom = 217.0
+custom_fonts/font = SubResource( 4 )
+text = "FULLSCREEN: ON"
+
+[node name="Timer" type="Button" parent="." groups=["button"]]
+margin_top = 227.0
+margin_right = 548.0
+margin_bottom = 289.0
+custom_fonts/font = SubResource( 4 )
+text = "TIMER: ON"
+
+[node name="Back" type="Button" parent="." groups=["button"]]
+margin_top = 299.0
+margin_right = 548.0
+margin_bottom = 361.0
+text = "BACK"

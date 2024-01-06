@@ -1,0 +1,384 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/Fonts/PixeloidSans-nR3g1.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/pico.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/skull.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/heart.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/timer.png" type="Texture" id=5]
+[ext_resource path="res://Screens/Results.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Audio/Sounds/snd_drumroll.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/Sounds/snd_portal.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/Sounds/snd_count.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio/Sounds/snd_fart.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Images/spotlight.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/wood.jpg" type="Texture" id=12]
+[ext_resource path="res://Assets/Images/brick.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/Audio/Sounds/snd_cheer.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Audio/Sounds/snd_stomp.wav" type="AudioStream" id=15]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pico:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 191, -300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pico:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pico:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sounds/Stomp:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pico:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 0.378929 ),
+"update": 0,
+"values": [ Vector2( 191, 303 ), Vector2( 190, 327.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pico:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 0.329877 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 4, 2.65493 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pico:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.34151, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 189.5, -700 ), Vector2( 191, 303 ), Vector2( 192.5, 403.5 ), Vector2( 191, 303 ), Vector2( 188, 291.5 ), Vector2( 191, 303 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pico:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.329877, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.77174, 3 ), Vector2( 3, 3 ), Vector2( 5.01087, 1.5845 ), Vector2( 3, 3 ), Vector2( 2.69565, 3.16197 ), Vector2( 3, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sounds/Stomp:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.611765 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.372549 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 90
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Results" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Brick" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.52549 )
+position = Vector2( 512, 300 )
+texture = ExtResource( 13 )
+
+[node name="Wood" type="Sprite" parent="."]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 512, 541 )
+scale = Vector2( 1, 0.592351 )
+texture = ExtResource( 12 )
+
+[node name="Pico" type="Sprite" parent="."]
+position = Vector2( 191, -300 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pico"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 4 )
+anims/idle = SubResource( 6 )
+anims/intro = SubResource( 5 )
+
+[node name="Spotlight" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.611765 )
+position = Vector2( 193, 270 )
+texture = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spotlight"]
+anims/RESET = SubResource( 8 )
+anims/idle = SubResource( 9 )
+
+[node name="Header" type="Label" parent="."]
+margin_left = 366.0
+margin_top = 39.0
+margin_right = 953.0
+margin_bottom = 186.0
+custom_fonts/font = SubResource( 1 )
+text = "RESULTS"
+
+[node name="Results" type="VBoxContainer" parent="."]
+margin_left = 459.0
+margin_top = 195.0
+margin_right = 970.0
+margin_bottom = 350.0
+custom_constants/separation = 20
+
+[node name="Health" type="HBoxContainer" parent="Results"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 511.0
+margin_bottom = 49.0
+
+[node name="Sprite" type="Sprite" parent="Results/Health"]
+position = Vector2( -39, 24 )
+texture = ExtResource( 4 )
+
+[node name="Header" type="Label" parent="Results/Health"]
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 305.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "HEALTH LOST: "
+
+[node name="Value" type="Label" parent="Results/Health"]
+margin_left = 309.0
+margin_right = 336.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+
+[node name="Life" type="HBoxContainer" parent="Results"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 69.0
+margin_right = 511.0
+margin_bottom = 118.0
+
+[node name="Sprite" type="Sprite" parent="Results/Life"]
+position = Vector2( -39, 22 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Results/Life"]
+margin_right = 269.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "LIVES LOST: "
+
+[node name="Value" type="Label" parent="Results/Life"]
+margin_left = 273.0
+margin_right = 300.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+
+[node name="Time" type="HBoxContainer" parent="Results"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 138.0
+margin_right = 511.0
+margin_bottom = 187.0
+
+[node name="Sprite" type="Sprite" parent="Results/Time"]
+position = Vector2( -39, 23 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Results/Time"]
+modulate = Color( 1, 0.913725, 0, 1 )
+margin_right = 282.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "TIME TAKEN: "
+
+[node name="Value" type="Label" parent="Results/Time"]
+margin_left = 286.0
+margin_right = 493.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "00:00:000"
+
+[node name="Rank" type="HBoxContainer" parent="."]
+margin_left = 445.0
+margin_top = 423.0
+margin_right = 809.0
+margin_bottom = 533.0
+
+[node name="Label" type="Label" parent="Rank"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 300.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 3 )
+text = "RANK: "
+
+[node name="Rank" type="Label" parent="Rank"]
+modulate = Color( 1, 0, 0, 0 )
+margin_left = 304.0
+margin_right = 364.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 3 )
+text = "D"
+
+[node name="Progress" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 359.0
+margin_top = 560.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_fonts/font = SubResource( 7 )
+text = "CLICK ANYWHERE TO RETURN TO TITLE..."
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="IntroTimer" type="Timer" parent="Timers"]
+wait_time = 4.6
+one_shot = true
+autostart = true
+
+[node name="StateTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="RankTimer" type="Timer" parent="Timers"]
+wait_time = 2.5
+one_shot = true
+
+[node name="ProgressTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Stomp" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 15 )
+
+[node name="Appear" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
+pitch_scale = 1.2
+
+[node name="Count" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
+
+[node name="DrumRoll" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
+
+[node name="Fart" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 10 )
+
+[node name="Cheer" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 14 )
+
+[connection signal="animation_finished" from="Pico/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timers/IntroTimer" to="." method="_on_IntroTimer_timeout"]

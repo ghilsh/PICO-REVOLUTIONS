@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Entities/NPC/NPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enviroment/Exit.gd" type="Script" id=4]
+[ext_resource path="res://Enviroment/WalkableTiles.gd" type="Script" id=5]
+[ext_resource path="res://Enviroment/TileSet.tres" type="TileSet" id=6]
+[ext_resource path="res://Materials/MainTiles.tres" type="TileSet" id=7]
+[ext_resource path="res://Enviroment/Entrance.gd" type="Script" id=8]
+[ext_resource path="res://Enviroment/Medikit.tscn" type="PackedScene" id=9]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 269, 437, 269, 74, 761, 74, 761, 437, 114, 197, 122, 374, -440, 372, -265, 196, -441, 7, -265, 9, 1018, 199, 1016, 307, 904, 308, 901, 200 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 8, 9 ), PoolIntArray( 10, 11, 12, 13 ) ]
+outlines = [ PoolVector2Array( 761, 437, 761, 74, 269, 74, 269, 437 ), PoolVector2Array( -441, 7, -440, 372, 122, 374, 114, 197, -265, 196, -265, 9 ), PoolVector2Array( 901, 200, 904, 308, 1016, 307, 1018, 199 ) ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 21.875, 61 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 263.5, 198 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 102.5, 199.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 190.5, 102 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 63.5, 64 )
+
+[node name="Room" type="Node2D"]
+
+[node name="Floor" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="Floor"]
+visible = false
+position = Vector2( 0, 3000 )
+z_index = -2
+tile_set = ExtResource( 6 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 65529, 0, 0, 65530, 1, 0, 65531, 2, 0, 131065, 3, 0, 131066, 4, 0, 131067, 5, 0, 65540, 0, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 2, 0, 196601, 3, 0, 196602, 4, 0, 196603, 5, 0, 131076, 3, 0, 131077, 4, 0, 131078, 4, 0, 131079, 4, 0, 131080, 4, 0, 131081, 4, 0, 131082, 4, 0, 131083, 5, 0, 262137, 3, 0, 262138, 4, 0, 262139, 4, 0, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 2, 0, 196612, 3, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 5, 0, 196622, 0, 0, 196623, 2, 0, 196627, 0, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 327673, 3, 0, 327674, 4, 0, 327675, 4, 0, 327676, 4, 0, 327677, 4, 0, 327678, 4, 0, 327679, 4, 0, 262144, 4, 0, 262145, 5, 0, 262148, 3, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 4, 0, 262155, 5, 0, 262158, 6, 0, 262159, 8, 0, 262163, 6, 0, 262164, 7, 0, 262165, 7, 0, 262166, 7, 0, 262167, 7, 0, 262168, 7, 0, 393209, 6, 0, 393210, 7, 0, 393211, 7, 0, 393212, 7, 0, 393213, 7, 0, 393214, 7, 0, 393215, 7, 0, 327680, 7, 0, 327681, 8, 0, 327684, 3, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 4, 0, 327691, 5, 0, 327694, 9, 0, 327695, 11, 0, 327699, 9, 0, 327700, 10, 0, 327701, 10, 0, 327702, 10, 0, 327703, 10, 0, 327704, 10, 0, 458745, 9, 0, 458746, 10, 0, 458747, 10, 0, 458748, 10, 0, 458749, 10, 0, 458750, 10, 0, 458751, 10, 0, 393216, 10, 0, 393217, 11, 0, 393220, 6, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 7, 0, 393226, 7, 0, 393227, 8, 0, 393230, 9, 0, 393231, 11, 0, 393235, 9, 0, 393236, 10, 0, 393237, 10, 0, 393238, 10, 0, 393239, 10, 0, 393240, 10, 0, 524281, 9, 0, 524282, 10, 0, 524283, 10, 0, 524284, 10, 0, 524285, 10, 0, 524286, 10, 0, 524287, 10, 0, 458752, 10, 0, 458753, 11, 0, 458756, 9, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 11, 0, 458766, 9, 0, 458767, 11, 0, 458771, 9, 0, 458772, 10, 0, 458773, 10, 0, 458774, 10, 0, 458775, 10, 0, 458776, 10, 0, 589817, 9, 0, 589818, 10, 0, 589819, 10, 0, 589820, 10, 0, 589821, 10, 0, 589822, 10, 0, 589823, 10, 0, 524288, 10, 0, 524289, 11, 0, 524292, 9, 0, 524293, 10, 0, 524294, 10, 0, 524295, 10, 0, 524296, 10, 0, 524297, 10, 0, 524298, 10, 0, 524299, 11, 0, 524302, 9, 0, 524303, 11, 0, 524307, 9, 0, 524308, 10, 0, 524309, 10, 0, 524310, 10, 0, 524311, 10, 0, 524312, 10, 0, 655353, 9, 0, 655354, 10, 0, 655355, 10, 0, 655356, 10, 0, 655357, 10, 0, 655358, 10, 0, 655359, 10, 0, 589824, 10, 0, 589825, 11, 0, 589828, 9, 0, 589829, 10, 0, 589830, 10, 0, 589831, 10, 0, 589832, 10, 0, 589833, 10, 0, 589834, 10, 0, 589835, 11, 0, 589838, 9, 0, 589839, 11, 0, 589843, 9, 0, 589844, 10, 0, 589845, 10, 0, 589846, 10, 0, 589847, 10, 0, 589848, 10, 0 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Floor"]
+navpoly = SubResource( 1 )
+
+[node name="TileMap2" type="TileMap" parent="Floor"]
+z_index = -2
+tile_set = ExtResource( 7 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 65529, 0, 0, 65530, 1, 0, 65531, -1610612736, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 65540, 0, 0, 65541, 1, 0, 65542, 1, 0, 65543, 536870913, 0, 65544, 536870913, 0, 65545, 536870913, 0, 65546, 1, 0, 65547, -1610612736, 0, 196601, 1, 0, 196602, 1, 0, 196603, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 536870913, 0, 131079, 536870913, 0, 131080, 536870913, 0, 131081, 536870913, 0, 131082, 536870913, 0, 131083, 1, 0, 262137, 1, 0, 262138, 1, 0, 262139, 1, 0, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 536870912, 0, 196612, 1, 0, 196613, 1, 0, 196614, 536870913, 0, 196615, 536870913, 0, 196616, 536870913, 0, 196617, 536870913, 0, 196618, 536870913, 0, 196619, 1, 0, 196622, 0, 0, 196623, -1610612736, 0, 196627, 0, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 327673, 1, 0, 327674, 1, 0, 327675, 1, 0, 327676, 1, 0, 327677, 1, 0, 327678, 1, 0, 327679, 1, 0, 262144, 1, 0, 262145, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 536870913, 0, 262151, 536870913, 0, 262152, 536870913, 0, 262153, 1, 0, 262154, 536870913, 0, 262155, 1, 0, 262158, 2, 0, 262159, 536870914, 0, 262163, 2, 0, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 262167, 4, 0, 262168, 4, 0, 393209, 2, 0, 393210, 4, 0, 393211, 4, 0, 393212, 4, 0, 393213, 4, 0, 393214, 4, 0, 393215, 4, 0, 327680, 4, 0, 327681, 536870914, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 536870913, 0, 327688, 536870913, 0, 327689, 536870913, 0, 327690, 1, 0, 327691, 1, 0, 327694, 5, 0, 327695, 5, 0, 327699, 5, 0, 458745, 5, 0, 393217, 5, 0, 393220, 2, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 536870914, 0, 393230, 5, 0, 393231, 5, 0, 393235, 5, 0, 524281, 5, 0, 458753, 5, 0, 458756, 5, 0, 458763, 5, 0, 458766, 5, 0, 458767, 5, 0, 458771, 5, 0, 589817, 5, 0, 524289, 5, 0, 524292, 5, 0, 524299, 5, 0, 524302, 5, 0, 524303, 5, 0, 524307, 5, 0, 655353, 5, 0, 589825, 5, 0, 589828, 5, 0, 589835, 5, 0, 589838, 5, 0, 589839, 5, 0, 589843, 5, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 481, 380 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+visible = false
+current = true
+limit_left = -1000
+limit_top = -500
+limit_right = 1600
+limit_bottom = 600
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.05
+drag_margin_top = 0.05
+drag_margin_right = 0.05
+drag_margin_bottom = 0.05
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 673, 129 )
+path_to_player = NodePath("../Player")
+alert_zone = NodePath("../../AlertZones/1")
+
+[node name="Enemy2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -345, 116 )
+path_to_player = NodePath("../Player")
+alert_zone = NodePath("../../AlertZones/2")
+
+[node name="Enemy3" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 962, 229 )
+path_to_player = NodePath("../Player")
+alert_zone = NodePath("../../AlertZones/3")
+
+[node name="NPC" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 327, 162 )
+path_to_player = NodePath("../Player")
+
+[node name="Medikit" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( -344, 38 )
+
+[node name="Entrances" type="Node" parent="."]
+
+[node name="1" type="Position2D" parent="Entrances"]
+position = Vector2( 1493, 251 )
+script = ExtResource( 8 )
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="1" type="Area2D" parent="Exits"]
+position = Vector2( 1592, 253 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+new_room = "res://Screens/Rooms/TestRoom2.tscn"
+direction = Vector2( 1, 0 )
+entrance_tag = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/1"]
+position = Vector2( -14.125, 0 )
+shape = SubResource( 6 )
+
+[node name="AlertZones" type="Node" parent="."]
+
+[node name="1" type="Area2D" parent="AlertZones"]
+position = Vector2( 261, 68 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertZones/1"]
+position = Vector2( 253.5, 188 )
+shape = SubResource( 7 )
+
+[node name="2" type="Area2D" parent="AlertZones"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertZones/2"]
+position = Vector2( -348.5, 189 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AlertZones/2"]
+position = Vector2( -58.5, 287 )
+shape = SubResource( 4 )
+
+[node name="3" type="Area2D" parent="AlertZones"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertZones/3"]
+position = Vector2( 960, 256 )
+shape = SubResource( 5 )

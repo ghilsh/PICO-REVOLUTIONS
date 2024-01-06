@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snd_woosh2.wav-9c1933e08f2dcb82034c050694cf964c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sounds/snd_woosh2.wav"
+dest_files=[ "res://.import/snd_woosh2.wav-9c1933e08f2dcb82034c050694cf964c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

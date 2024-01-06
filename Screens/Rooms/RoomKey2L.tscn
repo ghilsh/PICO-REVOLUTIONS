@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Enviroment/WalkableTiles.gd" type="Script" id=1]
+[ext_resource path="res://Enviroment/Entrance.gd" type="Script" id=2]
+[ext_resource path="res://Enviroment/Conveyor.gd" type="Script" id=3]
+[ext_resource path="res://Materials/Conveyor.tres" type="TileSet" id=4]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enviroment/Exit.gd" type="Script" id=6]
+[ext_resource path="res://Enviroment/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Screens/Rooms/Room.gd" type="Script" id=8]
+[ext_resource path="res://Materials/MainTiles.tres" type="TileSet" id=9]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 21.875, 61 )
+
+[node name="Room" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Floor" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="Floor"]
+z_index = -2
+tile_set = ExtResource( 9 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 262144, 6, 0, 262152, 536870918, 0, 262155, 0, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 327680, 6, 0, 327688, 536870918, 0, 327691, 2, 0, 327692, 4, 0, 327693, 4, 0, 327694, 4, 0, 327695, 4, 0, 393216, 5, 0, 393224, 5, 0, 393227, 5, 0, 458752, 5, 0, 458760, 5, 0, 458763, 5, 0, 524288, 6, 0, 524296, 536870918, 0, 524299, 5, 0, 589824, 6, 0, 589832, 536870918, 0, 589835, 5, 0, 655360, 5, 0, 655368, 5, 0, 655371, 5, 0, 720896, 5, 0, 720904, 5, 0, 720907, 5, 0, 786432, 6, 0, 786440, 536870918, 0, 786443, 5, 0, 851968, 6, 0, 851976, 536870918, 0, 851979, 5, 0, 917504, 5, 0, 917512, 5, 0, 917515, 5, 0, 983040, 5, 0, 983048, 5, 0, 983051, 5, 0, 1048576, 6, 0, 1048584, 536870918, 0, 1048587, 0, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1114112, 6, 0, 1114120, 536870918, 0, 1114123, 2, 0, 1114124, 4, 0, 1114125, 4, 0, 1114126, 4, 0, 1114127, 4, 0, 1179648, 5, 0, 1179656, 5, 0, 1179659, 5, 0, 1245184, 5, 0, 1245192, 5, 0, 1245195, 5, 0, 1310720, 5, 0, 1310728, 5, 0, 1310731, 5, 0, 1376256, 5, 0, 1376264, 5, 0, 1376267, 5, 0, 1441792, 5, 0, 1441800, 5, 0, 1441803, 5, 0, 1507328, 5, 0, 1507336, 5, 0, 1507339, 5, 0, 1572864, 5, 0, 1572872, 5, 0, 1572875, 5, 0 )
+
+[node name="ConveyorRight" type="Area2D" parent="."]
+z_index = -4
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="ConveyorRight"]
+tile_set = ExtResource( 4 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0 )
+
+[node name="ConveyorLeft" type="Area2D" parent="."]
+z_index = -4
+script = ExtResource( 3 )
+direction = Vector2( -1, 0 )
+
+[node name="TileMap" type="TileMap" parent="ConveyorLeft"]
+tile_set = ExtResource( 4 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 262144, 536870912, 0, 262145, 536870912, 0, 262146, 536870912, 0, 262147, 536870912, 0, 262148, 536870912, 0, 262149, 536870912, 0, 262150, 536870912, 0, 262151, 536870912, 0, 262152, 536870912, 0, 327680, 536870912, 0, 327681, 536870912, 0, 327682, 536870912, 0, 327683, 536870912, 0, 327684, 536870912, 0, 327685, 536870912, 0, 327686, 536870912, 0, 327687, 536870912, 0, 327688, 536870912, 0, 786432, 536870912, 0, 786433, 536870912, 0, 786434, 536870912, 0, 786435, 536870912, 0, 786436, 536870912, 0, 786437, 536870912, 0, 786438, 536870912, 0, 786439, 536870912, 0, 786440, 536870912, 0, 851968, 536870912, 0, 851969, 536870912, 0, 851970, 536870912, 0, 851971, 536870912, 0, 851972, 536870912, 0, 851973, 536870912, 0, 851974, 536870912, 0, 851975, 536870912, 0, 851976, 536870912, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 863, 311 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+visible = false
+current = true
+limit_right = 1024
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.05
+drag_margin_top = 0.05
+drag_margin_right = 0.05
+drag_margin_bottom = 0.05
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Key" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 753, 1088 )
+id = 2
+
+[node name="Entrances" type="Node" parent="."]
+
+[node name="1" type="Position2D" parent="Entrances"]
+position = Vector2( 991, 322 )
+script = ExtResource( 2 )
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="1" type="Area2D" parent="Exits"]
+position = Vector2( 1050, 313 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+new_room = "res://Screens/Rooms/RoomKey2.tscn"
+direction = Vector2( 1, 0 )
+entrance_tag = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/1"]
+position = Vector2( -4, 4 )
+shape = SubResource( 3 )
+
+[node name="2" type="Area2D" parent="Exits"]
+position = Vector2( 1048, 1080 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+new_room = "res://Screens/Rooms/RoomKey2.tscn"
+direction = Vector2( 1, 0 )
+entrance_tag = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/2"]
+position = Vector2( -4, 4 )
+shape = SubResource( 3 )

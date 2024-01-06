@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enviroment/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enviroment/DoorCinematic.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Audio/Sounds/snd_largedoor.wav" type="AudioStream" id=3]
+
+[node name="DoorCinematic" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 3 )
+
+[node name="Timers" type="Node" parent="." index="9"]
+
+[node name="CloseTimer" type="Timer" parent="Timers" index="0"]
+one_shot = true
+
+[node name="CinematicTimer" type="Timer" parent="Timers" index="1"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ShakeTimer" type="Timer" parent="Timers" index="2"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="." index="10"]
+
+[connection signal="timeout" from="Timers/CloseTimer" to="." method="_on_CloseTimer_timeout"]
+[connection signal="timeout" from="Timers/CinematicTimer" to="." method="_on_CinematicTimer_timeout"]

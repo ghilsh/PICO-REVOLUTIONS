@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Screens/Rooms/Room.gd" type="Script" id=1]
+[ext_resource path="res://Enviroment/WalkableTiles.gd" type="Script" id=2]
+[ext_resource path="res://Enviroment/Exit.gd" type="Script" id=3]
+[ext_resource path="res://Enviroment/Entrance.gd" type="Script" id=4]
+[ext_resource path="res://Materials/MainTiles.tres" type="TileSet" id=5]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Enemy/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enviroment/Medikit.tscn" type="PackedScene" id=9]
+
+[sub_resource type="NavigationPolygon" id=6]
+vertices = PoolVector2Array( 513, -123, 641, -123, 641, 189, 513, 69, 321, 189, 321, 69, 833, -3, 833, -123, 1089, -123, 1217, -3, 1217, -267, 1089, -267 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 10, 9, 8, 11 ) ]
+outlines = [ PoolVector2Array( 513, -123, 513, 69, 321, 69, 321, 189, 641, 189, 641, -123 ), PoolVector2Array( 833, -123, 1089, -123, 1089, -267, 1217, -267, 1217, -3, 833, -3 ) ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70.9375, 61 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 193.625, 194.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 252.25, 209.5 )
+
+[node name="Room" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Floor" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Floor"]
+visible = false
+position = Vector2( -1, -69 )
+navpoly = SubResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="Floor"]
+z_index = -2
+tile_set = ExtResource( 5 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( -196600, 0, 0, -196599, 536870912, 0, -196595, 0, 0, -196594, 1, 0, -196593, 1, 0, -196592, 1, 0, -196591, 1, 0, -196590, 1, 0, -131064, 1, 0, -131063, 1, 0, -131059, 2, 0, -131058, 4, 0, -131057, 4, 0, -131056, 4, 0, -131055, 4, 0, -131054, 536870914, 0, -65528, 1, 0, -65527, 1, 0, -65523, 5, 0, 5, 0, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 13, 5, 0, 65541, 2, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 536870914, 0, 65549, 5, 0, 131077, 5, 0, 131081, 5, 0, 131085, 5, 0, 196613, 5, 0, 196617, 5, 0, 196621, 5, 0, 327678, 1, 0, 327679, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 536870913, 0, 262150, 536870912, 0, 262153, 5, 0, 262157, 5, 0, 393214, 4, 0, 393215, 4, 0, 327680, 4, 0, 327681, 4, 0, 327682, 4, 0, 327683, 4, 0, 327684, 4, 0, 327685, 536870916, 0, 327686, 536870914, 0, 327689, 5, 0, 327693, 5, 0, 393221, 5, 0, 393222, 536870917, 0, 393225, 5, 0, 393229, 5, 0, 458757, 5, 0, 458758, 536870917, 0, 458761, 5, 0, 458765, 5, 0, 524293, 5, 0, 524294, 536870917, 0, 524297, 5, 0, 524301, 5, 0, 589829, 5, 0, 589830, 536870917, 0, 589833, 5, 0, 589837, 5, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( -38, 322 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+current = true
+limit_left = -128
+limit_top = -440
+limit_right = 1216
+limit_bottom = 600
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.05
+drag_margin_top = 0.05
+drag_margin_right = 0.05
+drag_margin_bottom = 0.05
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 578, -145 )
+path_to_player = NodePath("../Player")
+alert_zone = NodePath("../../AlertZones/1")
+
+[node name="Enemy2" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 910, -120 )
+path_to_player = NodePath("../Player")
+alert_zone = NodePath("../../AlertZones/2")
+
+[node name="Medikit" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 578, 85 )
+
+[node name="Entrances" type="Node" parent="."]
+
+[node name="1" type="Position2D" parent="Entrances"]
+position = Vector2( -54, 316 )
+script = ExtResource( 4 )
+
+[node name="2" type="Position2D" parent="Entrances"]
+position = Vector2( 1128, -137 )
+script = ExtResource( 4 )
+tag = 2
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Exit 1" type="Area2D" parent="Exits"]
+position = Vector2( 1196, -136 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+new_room = "res://Screens/Rooms/RoomKey1.tscn"
+direction = Vector2( 1, 0 )
+entrance_tag = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit 1"]
+position = Vector2( 45.0625, 4 )
+shape = SubResource( 1 )
+
+[node name="Exit 2" type="Area2D" parent="Exits"]
+position = Vector2( -167, 312 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+new_room = "res://Screens/Rooms/Room2.tscn"
+direction = Vector2( -1, 0 )
+entrance_tag = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit 2"]
+position = Vector2( -4, 4 )
+shape = SubResource( 1 )
+
+[node name="AlertZones" type="Node2D" parent="."]
+visible = false
+
+[node name="1" type="Area2D" parent="AlertZones"]
+position = Vector2( 465, -71 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertZones/1"]
+position = Vector2( 20.375, 40.5 )
+shape = SubResource( 5 )
+
+[node name="2" type="Area2D" parent="AlertZones"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AlertZones/2"]
+position = Vector2( 1055.75, -255.5 )
+shape = SubResource( 4 )

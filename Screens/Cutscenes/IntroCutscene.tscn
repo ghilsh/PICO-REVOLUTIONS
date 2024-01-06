@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Screens/Cutscenes/Cutscene.gd" type="Script" id=1]
+
+[node name="IntroCutscene" type="Node2D"]
+script = ExtResource( 1 )
+dialog = "intro"
+destination = "res://Screens/Instructions.tscn"
+music = "cutscene"

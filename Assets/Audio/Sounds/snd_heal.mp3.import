@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/snd_heal.mp3-cbdc3dbfcc0dcdf4aad711e7c8412b29.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sounds/snd_heal.mp3"
+dest_files=[ "res://.import/snd_heal.mp3-cbdc3dbfcc0dcdf4aad711e7c8412b29.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

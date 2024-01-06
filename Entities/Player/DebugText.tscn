@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Entities/Player/DebugText.gd" type="Script" id=1]
+
+[node name="DebugText" type="Node2D"]
+visible = false
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -50.0
+margin_top = -181.0
+margin_right = 118.0
+margin_bottom = -133.0
+color = Color( 0, 0, 0, 0.462745 )
+
+[node name="Stats" type="Label" parent="."]
+margin_left = -50.0
+margin_top = -181.0
+margin_right = 44.0
+margin_bottom = -133.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HEALTH: N/A
+SPEED: N/A
+STATE: N/A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
