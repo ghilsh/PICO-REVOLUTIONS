@@ -129,18 +129,22 @@ id = 6
 [node name="Portal" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1088, 104 )
 path_to_destination = NodePath("../Portal2")
+direction = 90
 
 [node name="Portal2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2175, -602 )
 path_to_destination = NodePath("../Portal")
+direction = 270
 
 [node name="Portal3" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -64, 106 )
 path_to_destination = NodePath("../Portal4")
+direction = 90
 
 [node name="Portal4" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -2366, -1571 )
 path_to_destination = NodePath("../Portal3")
+direction = 270
 
 [node name="Medikit" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 3647, -959 )

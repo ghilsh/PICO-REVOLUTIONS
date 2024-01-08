@@ -102,18 +102,22 @@ alert_zone = NodePath("../../AlertZones/5")
 position = Vector2( -63, 673 )
 z_as_relative = false
 path_to_destination = NodePath("../Portal1_2")
+direction = 90
 
 [node name="Portal1_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 1664, 460 )
 path_to_destination = NodePath("../Portal1_1")
+direction = 270
 
 [node name="Portal2_1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 1662, -634 )
 path_to_destination = NodePath("../Portal2_2")
+direction = 90
 
 [node name="Portal2_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 3009, -998 )
 path_to_destination = NodePath("../Portal2_1")
+direction = 270
 
 [node name="Medikit" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1577, -188 )

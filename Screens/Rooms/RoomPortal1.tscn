@@ -83,14 +83,17 @@ alert_zone = NodePath("../../AlertZones/1")
 [node name="Portal1_1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 513, 407 )
 path_to_destination = NodePath("../Portal1_2")
+direction = 270
 
 [node name="Portal1_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 1472, 635 )
 path_to_destination = NodePath("../Portal1_1")
+direction = 90
 
 [node name="Portal2_1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 1745, 836 )
 path_to_destination = NodePath("../Portal2_2")
+direction = 180
 
 [node name="Portal2_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 2803, 386 )
@@ -99,6 +102,7 @@ path_to_destination = NodePath("../Portal2_1")
 [node name="Portal3_1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 3394, 578 )
 path_to_destination = NodePath("../Portal3_2")
+direction = 180
 
 [node name="Portal3_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 4354, 957 )
@@ -107,10 +111,12 @@ path_to_destination = NodePath("../Portal3_1")
 [node name="Portal4_1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 5118, 605 )
 path_to_destination = NodePath("../Portal4_2")
+direction = 90
 
 [node name="Portal4_2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 6080, 412 )
 path_to_destination = NodePath("../Portal4_1")
+direction = 270
 
 [node name="Checkpoint" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1561, 786 )

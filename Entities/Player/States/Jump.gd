@@ -3,11 +3,15 @@ extends "res://Entities/Player/States/Motion.gd"
 var horizontal_speed
 var enter_velocity
 var jump_velocity
+var delta_time
 
 var idle_jump_direction = Vector2.ZERO
 var target_velocity = Vector2.ZERO
 var horizontal_velocity = Vector2()
 var conveyor_physics_active = true
+
+func _process(delta):
+	delta_time = delta
 
 func enter():
 	owner.get_node("AnimationPlayer").play("jump")
@@ -61,5 +65,6 @@ func handle_input(event):
 
 func conveyor_movement(conveyor_knockback):
 	if conveyor_physics_active:
-		owner.knockback = conveyor_knockback * 1000
+		owner.knockback = (conveyor_knockback * 1200)
+		print(delta_time)
 		conveyor_physics_active = false

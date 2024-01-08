@@ -6,4 +6,4 @@ func check_ground_status():
 		owner.get_node("Sounds/Fall").play()
 
 func conveyor_movement(direction):
-	owner.position += direction * owner.CONVEYORSPEED
+	owner.position += direction * owner.CONVEYORSPEED * owner.delta_time

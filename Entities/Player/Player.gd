@@ -12,7 +12,7 @@ const DECELERATION = 30
 const JUMPACCELERATION = 20
 const JUMPDECELERATION = 10
 const AIRSTEERINGPOWER = 25
-const CONVEYORSPEED = 6
+const CONVEYORSPEED = 400
 
 const MAXHEALTH = 50
 const GUNPOWER = 1
@@ -23,6 +23,7 @@ var current_state = null
 var state_name = "idle"
 var start_pos := Vector2.ZERO
 var knockback := Vector2.ZERO
+var delta_time
 
 signal new_name
 
@@ -59,7 +60,7 @@ func _ready():
 	
 	start_pos = position
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var new_state = current_state.update()
 	if new_state:
 		change_state(states_stack)
@@ -78,6 +79,8 @@ func _physics_process(_delta):
 		if $Sounds/Walk.playing == false:
 			$Sounds/Walk.play()
 	else: $Sounds/Walk.stop()
+	
+	delta_time = delta
 
 func _input(_event):
 	current_state.handle_input(_event)
@@ -122,7 +125,7 @@ func play_animation(anim):
 func conveyor_movement(direction):
 	if current_state.has_method("conveyor_movement"):
 		current_state.conveyor_movement(direction)
-		position += direction * CONVEYORSPEED # this being here also is an oversight but it ended up feeling better with it anyway
+#		position += direction * CONVEYORSPEED * delta_time # this being here also is an oversight but it ended up feeling better with it anyway
 
 func _on_Stats_no_health():
 	current_state.call_deferred("emit_signal","finished", "death")

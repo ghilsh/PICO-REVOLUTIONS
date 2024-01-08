@@ -15,7 +15,7 @@ func get_position():
 
 func teleport():
 	var new_pos = get_position()
-	if (new_pos - owner.player.global_position).length() <= 180:
+	if (new_pos - owner.player.global_position).length() <= 350:
 		teleport()
 	else:
 		owner.position = new_pos
